@@ -1,7 +1,7 @@
 ---
 title: Bypass de código 403 Forbidden en Nginx
 date: 2022-05-03 11:43:00 +/-TTTT
-categories: [Tutotial, DIY]
+categories: [Tutorial, DIY]
 tags: [scraping, powershell]
 ---
 
