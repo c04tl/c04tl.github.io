@@ -14,11 +14,11 @@ Aquí encontraras mis otras redes sociales donde comparto memes, noticias, actua
 
 
 
-- [Twitch](https://twitch.tv/c04tl) :tv:
-- [YouTube](https://youtube.com/c04tl) :movie_camera:
-- [Twitter](https://twitter.com/c04tl) :bird:
-- [Instagram](https://instagram.com/c04l) :camera:
-- [TikTok](https://www.tiktok.com/@c04tl) :video_camera:
+- :tv: [Twitch](https://twitch.tv/c04tl)
+- :movie_camera: [YouTube](https://youtube.com/c04tl)
+- :bird: [Twitter](https://twitter.com/c04tl)
+- :camera: [Instagram](https://instagram.com/c04tl)
+- :video_camera: [TikTok](https://www.tiktok.com/@c04tl)
 
 
 
