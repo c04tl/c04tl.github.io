@@ -1,6 +1,6 @@
 ---
 title: Personalización de blackarch
-date: 2023-01-04 23:00:00 +/-TTTT
+date: 2023-01-04 11:00:00 +/-TTTT
 categories: [Tutorial, DIY]
 tags: [python, bash, curl]
 ---
