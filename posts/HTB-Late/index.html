@@ -1,0 +1,193 @@
+<!DOCTYPE html><html lang="es" ><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta name="day-prompt" content="días"><meta name="hour-prompt" content="horas"><meta name="minute-prompt" content="minutos"><meta name="justnow-prompt" content="ahora"><meta name="generator" content="Jekyll v4.2.2" /><meta property="og:title" content="Resolución de máquina Late - HackTheBox" /><meta property="og:locale" content="es" /><meta name="description" content="Introducción" /><meta property="og:description" content="Introducción" /><link rel="canonical" href="https://c04tl.github.io/posts/HTB-Late/" /><meta property="og:url" content="https://c04tl.github.io/posts/HTB-Late/" /><meta property="og:site_name" content="Página de c04tl" /><meta property="og:type" content="article" /><meta property="article:published_time" content="2022-07-30T00:00:00-05:00" /><meta name="twitter:card" content="summary" /><meta property="twitter:title" content="Resolución de máquina Late - HackTheBox" /><meta name="twitter:site" content="@c04tl" /><meta name="google-site-verification" content="google_meta_tag_verification" /> <script type="application/ld+json"> {"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-07-30T00:00:00-05:00","datePublished":"2022-07-30T00:00:00-05:00","description":"Introducción","headline":"Resolución de máquina Late - HackTheBox","mainEntityOfPage":{"@type":"WebPage","@id":"https://c04tl.github.io/posts/HTB-Late/"},"url":"https://c04tl.github.io/posts/HTB-Late/"}</script><title>Resolución de máquina Late - HackTheBox | Página de c04tl</title><link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png"><link rel="manifest" href="/assets/img/favicons/site.webmanifest"><link rel="shortcut icon" href="/assets/img/favicons/favicon.ico"><meta name="apple-mobile-web-app-title" content="Página de c04tl"><meta name="application-name" content="Página de c04tl"><meta name="msapplication-TileColor" content="#da532c"><meta name="msapplication-config" content="/assets/img/favicons/browserconfig.xml"><meta name="theme-color" content="#ffffff"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"><link rel="dns-prefetch" href="https://fonts.gstatic.com"><link rel="preconnect" href="https://www.google-analytics.com" crossorigin="use-credentials"><link rel="dns-prefetch" href="https://www.google-analytics.com"><link rel="preconnect" href="https://www.googletagmanager.com" crossorigin="anonymous"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><link rel="preconnect" href="https://cdn.jsdelivr.net"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.11.2/css/all.min.css"><link rel="stylesheet" href="/assets/css/style.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/magnific-popup@1.1.0/dist/magnific-popup.min.css"> <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script><body data-spy="scroll" data-target="#toc"><div id="sidebar" class="d-flex flex-column align-items-end" lang="en">
+<div class="profile-wrapper text-center">
+<div id="avatar"> <a href="/" alt="avatar" class="mx-auto"> <img src="/avatar.jpg" alt="avatar" onerror="this.style.display='none'"> </a>
+</div>
+<div class="site-title mt-3"> <a href="/">Página de c04tl</a>
+</div>
+<div class="site-subtitle font-italic">Powered by guacamole</div>
+</div>
+<ul class="w-100">
+<li class="nav-item"> <a href="/" class="nav-link"> <i class="fa-fw fas fa-home ml-xl-3 mr-xl-3 unloaded"></i> <span>INICIO</span> </a>
+</li>
+<li class="nav-item"> <a href="/categories/" class="nav-link"> <i class="fa-fw fas fa-stream ml-xl-3 mr-xl-3 unloaded"></i> <span>CATEGORIAS</span> </a>
+</li>
+<li class="nav-item"> <a href="/tags/" class="nav-link"> <i class="fa-fw fas fa-tag ml-xl-3 mr-xl-3 unloaded"></i> <span>ETIQUETAS</span> </a>
+</li>
+<li class="nav-item"> <a href="/archives/" class="nav-link"> <i class="fa-fw fas fa-archive ml-xl-3 mr-xl-3 unloaded"></i> <span>ARCHIVO</span> </a>
+</li>
+<li class="nav-item"> <a href="/about/" class="nav-link"> <i class="fa-fw fas fa-info-circle ml-xl-3 mr-xl-3 unloaded"></i> <span>ACERCA DE MÍ</span> </a>
+</li>
+</ul>
+<div class="sidebar-bottom mt-auto d-flex flex-wrap justify-content-center align-items-center"> <a href="https://twitch.tv/c04tl" aria-label="twitch" class="order-3" target="_blank" rel="noopener"> <i class="fab fa-twitch"></i> </a> <a href="https://youtube.com/c04tl" aria-label="youtube" class="order-4" target="_blank" rel="noopener"> <i class="fab fa-youtube"></i> </a> <a href="https://twitter.com/c04tl" aria-label="twitter" class="order-5" target="_blank" rel="noopener"> <i class="fab fa-twitter"></i> </a> <a href="https://instagram.com/c04tl" aria-label="instagram" class="order-6" target="_blank" rel="noopener"> <i class="fab fa-instagram"></i> </a> <a href="https://github.com/c04tl" aria-label="github" class="order-7" target="_blank" rel="noopener"> <i class="fab fa-github"></i> </a> <span class="icon-border order-2"></span> <span id="mode-toggle-wrapper" class="order-1"> <i class="mode-toggle fas fa-adjust"></i> <script type="text/javascript"> class ModeToggle { static get MODE_KEY() { return "mode"; } static get DARK_MODE() { return "dark"; } static get LIGHT_MODE() { return "light"; } constructor() { if (this.hasMode) { if (this.isDarkMode) { if (!this.isSysDarkPrefer) { this.setDark(); } } else { if (this.isSysDarkPrefer) { this.setLight(); } } } var self = this; /* always follow the system prefers */ this.sysDarkPrefers.addListener(function() { if (self.hasMode) { if (self.isDarkMode) { if (!self.isSysDarkPrefer) { self.setDark(); } } else { if (self.isSysDarkPrefer) { self.setLight(); } } self.clearMode(); } self.updateMermaid(); }); } /* constructor() */ setDark() { $('html').attr(ModeToggle.MODE_KEY, ModeToggle.DARK_MODE); sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.DARK_MODE); } setLight() { $('html').attr(ModeToggle.MODE_KEY, ModeToggle.LIGHT_MODE); sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.LIGHT_MODE); } clearMode() { $('html').removeAttr(ModeToggle.MODE_KEY); sessionStorage.removeItem(ModeToggle.MODE_KEY); } get sysDarkPrefers() { return window.matchMedia("(prefers-color-scheme: dark)"); } get isSysDarkPrefer() { return this.sysDarkPrefers.matches; } get isDarkMode() { return this.mode == ModeToggle.DARK_MODE; } get isLightMode() { return this.mode == ModeToggle.LIGHT_MODE; } get hasMode() { return this.mode != null; } get mode() { return sessionStorage.getItem(ModeToggle.MODE_KEY); } /* get the current mode on screen */ get modeStatus() { if (this.isDarkMode || (!this.hasMode && this.isSysDarkPrefer) ) { return ModeToggle.DARK_MODE; } else { return ModeToggle.LIGHT_MODE; } } updateMermaid() { if (typeof mermaid !== "undefined") { let expectedTheme = (this.modeStatus === ModeToggle.DARK_MODE? "dark" : "default"); let config = { theme: expectedTheme }; /* re-render the SVG › <https://github.com/mermaid-js/mermaid/issues/311#issuecomment-332557344> */ $(".mermaid").each(function() { let svgCode = $(this).prev().children().html(); $(this).removeAttr("data-processed"); $(this).html(svgCode); }); mermaid.initialize(config); mermaid.init(undefined, ".mermaid"); } } flipMode() { if (this.hasMode) { if (this.isSysDarkPrefer) { if (this.isLightMode) { this.clearMode(); } else { this.setLight(); } } else { if (this.isDarkMode) { this.clearMode(); } else { this.setDark(); } } } else { if (this.isSysDarkPrefer) { this.setLight(); } else { this.setDark(); } } this.updateMermaid(); } /* flipMode() */ } /* ModeToggle */ let toggle = new ModeToggle(); $(".mode-toggle").click(function() { toggle.flipMode(); }); </script> </span>
+</div>
+</div><div id="topbar-wrapper" class="row justify-content-center topbar-down"><div id="topbar" class="col-11 d-flex h-100 align-items-center justify-content-between"> <span id="breadcrumb"> <span> <a href="/"> Inicio </a> </span> <span>Resolución de máquina Late - HackTheBox</span> </span> <i id="sidebar-trigger" class="fas fa-bars fa-fw"></i><div id="topbar-title"> Post</div>
+<i id="search-trigger" class="fas fa-search fa-fw"></i> <span id="search-wrapper" class="align-items-center"> <i class="fas fa-search fa-fw"></i> <input class="form-control" id="search-input" type="search" aria-label="search" autocomplete="off" placeholder="Buscar..."> <i class="fa fa-times-circle fa-fw" id="search-cleaner"></i> </span> <span id="search-cancel">Cancelar</span>
+</div></div><div id="main-wrapper">
+<div id="main">
+<div class="row">
+<div id="post-wrapper" class="col-12 col-lg-11 col-xl-8"><div class="post pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4">
+<h1 data-toc-skip>Resolución de máquina Late - HackTheBox</h1>
+<div class="post-meta text-muted d-flex flex-column">
+<div> <span class="semi-bold"> Luis Medina </span> hace <span class="timeago " data-toggle="tooltip" data-placement="bottom" title="Sat, Jul 30, 2022, 12:00 AM -0500">Jul 30, 2022<i class="unloaded">2022-07-30T00:00:00-05:00</i> </span>
+</div>
+<div> <span class="readtime" data-toggle="tooltip" data-placement="bottom" title="745 palabras">4 min lectura</span>
+</div>
+</div>
+<div class="post-content">
+<h1 id="introducción">Introducción</h1>
+<p>Bienvenidos a mi primer writeup de Hack The Box, para comenzar, agregamos la dirección IP de la máquina en nuestro archivo <code class="language-plaintext highlighter-rouge">/etc/hosts</code> con el nombre late.htb para hacerlo más práctico.</p>
+<h1 id="resolución">Resolución</h1>
+<p>Para realizar un reconocimiento de puertos y servicios utilizamos la siguiente línea de comandos:</p>
+<div class="language-bash highlighter-rouge">
+<div class="code-header"> <span text-data=" Shell "><i class="fa-fw fas fa-code small"></i></span> <button aria-label="copy" title-succeed="¡Copiado!"><i class="far fa-clipboard"></i></button>
+</div>
+<div class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td>
+<td class="rouge-code"><pre><span class="nb">sudo </span>nmap <span class="nt">-Pn</span> <span class="nt">-n</span> <span class="nt">-p-</span> <span class="nt">--open</span> <span class="nt">-sSVC</span> <span class="nt">--min-rate</span> 4000 late.htb
+</pre></td>
+</tr></tbody></table></code></div>
+</div>
+<p>Como resultado obtuvimos lo siguiente:</p>
+<div class="language-bash highlighter-rouge">
+<div class="code-header"> <span text-data=" Shell "><i class="fa-fw fas fa-code small"></i></span> <button aria-label="copy" title-succeed="¡Copiado!"><i class="far fa-clipboard"></i></button>
+</div>
+<div class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td>
+<td class="rouge-code"><pre>PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.6 <span class="o">(</span>Ubuntu Linux<span class="p">;</span> protocol 2.0<span class="o">)</span>
+| ssh-hostkey: 
+|   2048 02:5e:29:0e:a3:af:4e:72:9d:a4:fe:0d:cb:5d:83:07 <span class="o">(</span>RSA<span class="o">)</span>
+|   256 41:e1:fe:03:a5:c7:97:c4:d5:16:77:f3:41:0c:e9:fb <span class="o">(</span>ECDSA<span class="o">)</span>
+|_  256 28:39:46:98:17:1e:46:1a:1e:a1:ab:3b:9a:57:70:48 <span class="o">(</span>ED25519<span class="o">)</span>
+80/tcp open  http    nginx 1.14.0 <span class="o">(</span>Ubuntu<span class="o">)</span>
+|_http-title: Late - Best online image tools
+|_http-server-header: nginx/1.14.0 <span class="o">(</span>Ubuntu<span class="o">)</span>
+Service Info: OS: Linux<span class="p">;</span> CPE: cpe:/o:linux:linux_kernel
+</pre></td>
+</tr></tbody></table></code></div>
+</div>
+<p>Cuando visitamos la página en el puerto 80 encontramos un enlace hacia <a href="http://images.late.htb">images.late.htb</a> así que añadimos este enlace en el archivo <code class="language-plaintext highlighter-rouge">/etc/hosts</code> y cuando recargamos la página nos mostró el siguiente portal.</p>
+<p><img data-proofer-ignore data-src="/assets/img/6-HTB-Late/1-puerto80.png" alt="images.late.htb"></p>
+<p>Ya que esta aplicación procesa el texto que recibe como imagenes probamos ataques STTI (Server Side Template Injection) con diferentes fuentes, tamaños de letra y estilos. Les recomiendo visitar los siguientes enlaces para conocer más sobre como funciona esta vulnerabilidad.</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=SN6EVIG4c-0">Server-Side Template Injections Explained</a></li>
+<li><a href="https://podalirius.net/en/publications/grehack-2021-optimizing-ssti-payloads-for-jinja2/#server-side-template-injections">podalirius.net</a></li>
+</ul>
+<p>Primero comprobamos que se trata de un <code class="language-plaintext highlighter-rouge">SSTI</code> enviando la siguiente imágen:</p>
+<p><img data-proofer-ignore data-src="/assets/img/6-HTB-Late/Payloads/1-Consolas91.png" alt="7x7"></p>
+<p>Podemos ver que entre las etiquetas <code class="language-plaintext highlighter-rouge">p</code> de la respuesta viene el resultado de la evaluación hecha por python.</p>
+<p><img data-proofer-ignore data-src="/assets/img/6-HTB-Late/2-ssti.png" alt="7x7=SSTI"></p>
+<p>Una vez comprobada la injección de plantilla veremos si podemos ejecutar código directamente desde el interprete de python llamando al modulo <code class="language-plaintext highlighter-rouge">os</code>, en este caso llamaremos a <code class="language-plaintext highlighter-rouge">id</code> para ver el id del usuario actual.</p>
+<p><img data-proofer-ignore data-src="/assets/img/6-HTB-Late/Payloads/2-Dubai62.png" alt="id"></p>
+<p>La aplicación respondió con el siguiente id, lo cual me hizo suponer que el usuario root es quien está ejecutando el aplicativo:</p>
+<p><img data-proofer-ignore data-src="/assets/img/6-HTB-Late/3-id.png" alt="id=0"></p>
+<p>Para comprobarlo, ahora ejecutamos <code class="language-plaintext highlighter-rouge">whoami</code> esperando el nombre del usuario actual:</p>
+<p><img data-proofer-ignore data-src="/assets/img/6-HTB-Late/Payloads/3-Dubai58.png" alt="whoami"></p>
+<p>Sin embargo, como respuesta obtuvimos una cadena vacía:</p>
+<p><img data-proofer-ignore data-src="/assets/img/6-HTB-Late/4-whoami.png" alt="Cadena vacía"></p>
+<p>Pero no hay que preocuparnos ya que podemos utilizar el comando <code class="language-plaintext highlighter-rouge">who</code> para ver los usuarios que tienen una sesión iniciada en la máquina.</p>
+<p><img data-proofer-ignore data-src="/assets/img/6-HTB-Late/Payloads/4-Dubai52.png" alt="who"></p>
+<p>Una vez que recibimos la respueta de la aplicación podemos ver algo como lo siguiente.</p>
+<p><img data-proofer-ignore data-src="/assets/img/6-HTB-Late/5-who.png" alt="svc_acc"></p>
+<p>Recordando el escaneo de nmap pudimos ver el puerto 22 abierto y ya que tenemos el nombre del usuario buscamos su <code class="language-plaintext highlighter-rouge">id_rsa</code> en su carpeta personal con la siguiente imagen:</p>
+<p><img data-proofer-ignore data-src="/assets/img/6-HTB-Late/Payloads/5-Dubai43.png" alt="cat id_rsa"></p>
+<p>En la respuesta podemos ver la id_rsa completa del usuario por lo cual ahora podemos conectarnos por ssh.</p>
+<p><img data-proofer-ignore data-src="/assets/img/6-HTB-Late/6-id_rsa.png" alt="id_rsa"></p>
+<p>Recordemos que debemos cambiar los permisos con <code class="language-plaintext highlighter-rouge">chmod 400 id_rsa</code> ya que de lo contrario <code class="language-plaintext highlighter-rouge">ssh</code> nos dará un error y no nos dejará conectarnos.</p>
+<p><img data-proofer-ignore data-src="/assets/img/6-HTB-Late/7-chmod400.png" alt="chmod"></p>
+<h2 id="bandera-usertxt">Bandera user.txt</h2>
+<p>Ya que nos conectamos a la máquina listamos el directorio actual y podemos ver la bandera <strong>user.txt</strong>.</p>
+<p><img data-proofer-ignore data-src="/assets/img/6-HTB-Late/8-ssh.png" alt="ssh"></p>
+<h2 id="bandera-roottxt">Bandera root.txt</h2>
+<p>Para conseguir la bandera del usuario root utilizamos <a href="https://github.com/carlospolop/PEASS-ng/tree/master/linPEAS">linpeas.sh</a> para enumerar el sistema y encontrar un vector para escalar privilegios. Los resultados de <code class="language-plaintext highlighter-rouge">linpeas</code> muestran el script <code class="language-plaintext highlighter-rouge">/usr/local/sbin/ssh-alert.sh</code>, al revisar los permisos podemos ver que somos el propietario y tenemos permisos de lectura, escritura y ejecución, además, al hacer un <code class="language-plaintext highlighter-rouge">cat</code> al archivo vemos que este script envía un correo de alerta al usuario <code class="language-plaintext highlighter-rouge">root@late.htb</code>.</p>
+<p><img data-proofer-ignore data-src="/assets/img/6-HTB-Late/9-script.png" alt="ssh-alert.sh"></p>
+<p>Despues, con <a href="https://github.com/DominicBreuker/pspy">pspy</a> podemos ver que este script lo está ejecutando el usuario root cuando se hace un login por ssh, además, cuando intentamos editar este script nos apareció un error lo cual es raro ya que somos los propietarios de este scriot además de que tenemos los permisos para editarlo, pero al listar los atributos del archivo con <code class="language-plaintext highlighter-rouge">lsattr</code> podemos ver que está activo el atributo a (append), lo cual solo nos permitirá agregar contenido más no modificarlo, sabiendo esto, ejecutamos la siguiente línea de comandos:</p>
+<div class="language-bash highlighter-rouge">
+<div class="code-header"> <span text-data=" Shell "><i class="fa-fw fas fa-code small"></i></span> <button aria-label="copy" title-succeed="¡Copiado!"><i class="far fa-clipboard"></i></button>
+</div>
+<div class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td>
+<td class="rouge-code"><pre><span class="nb">echo</span> <span class="nt">-e</span> <span class="s2">"cp /root/root.txt /home/svc_acc/root.txt</span><span class="se">\n</span><span class="s2">chown svc_acc /home/svc_acc/root.txt"</span> | <span class="nb">tee</span> <span class="nt">-a</span> /usr/local/sbin/ssh-alert.sh
+</pre></td>
+</tr></tbody></table></code></div>
+</div>
+<p>Ya que el script es ejecutado por el usuario root, con estas instrucciones estamos copiando el archivo root.txt hacía nuestro directorio personal y poniendonos como propietarios a nosotros.</p>
+<p>En este caso la bandera root en HTB siempre se encuentra en ese directorio pero por ejemplo pudimos cambiar los permisos de la <code class="language-plaintext highlighter-rouge">/bin/bash</code>, copiar la id_rsa del usuario root si es que la hubiera, lanzar una reverse shell, etc.</p>
+<p><img data-proofer-ignore data-src="/assets/img/6-HTB-Late/10-atributos.png" alt="ssh-alert.sh"></p>
+<p>Para que se ejecute el script basta con salir de ssh, volver a iniciar sesión y ahí tendremos nuestro archivo root.txt</p>
+<h1 id="conclusiones">Conclusiones</h1>
+<p>Esta máquina me gustó mucho ya que es la primera en HTB que soluciono, además de que aprendí más sobre python y SSTI en Flask y de igual manera sobre los atributos en los archivos de linux. Espero que les haya gustado este writeup, nos vemos en el siguiente post ;).</p>
+</div>
+<div class="post-tail-wrapper text-muted">
+<div class="post-meta mb-3"> <i class="far fa-folder-open fa-fw mr-1"></i> <a href="/categories/ctf/">CTF</a>, <a href="/categories/hackthebox/">HackTheBox</a>
+</div>
+<div class="post-tags"> <i class="fa fa-tags fa-fw mr-1"></i> <a href="/tags/ssh/" class="post-tag no-text-decoration">ssh</a> <a href="/tags/linpeas/" class="post-tag no-text-decoration">linpeas</a> <a href="/tags/attr/" class="post-tag no-text-decoration">attr</a> <a href="/tags/lsattr/" class="post-tag no-text-decoration">lsattr</a> <a href="/tags/tee/" class="post-tag no-text-decoration">tee</a> <a href="/tags/python/" class="post-tag no-text-decoration">python</a> <a href="/tags/chmod/" class="post-tag no-text-decoration">chmod</a> <a href="/tags/chown/" class="post-tag no-text-decoration">chown</a> <a href="/tags/id-rsa/" class="post-tag no-text-decoration">id_rsa</a>
+</div>
+<div class="post-tail-bottom d-flex justify-content-between align-items-center mt-3 pt-5 pb-2">
+<div class="license-wrapper"> This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/"> CC BY 4.0 </a> by the author.</div>
+<div class="share-wrapper"> <span class="share-label text-muted mr-1">Compartir</span> <span class="share-icons"> <a href="https://twitter.com/intent/tweet?text=Resoluci%C3%B3n%20de%20m%C3%A1quina%20Late%20-%20HackTheBox%20-%20P%C3%A1gina%20de%20c04tl&amp;url=https://c04tl.github.io/posts/HTB-Late/" data-toggle="tooltip" data-placement="top" title="Twitter" target="_blank" rel="noopener" aria-label="Twitter"> <i class="fa-fw fab fa-twitter"></i> </a> <a href="https://www.facebook.com/sharer/sharer.php?title=Resoluci%C3%B3n%20de%20m%C3%A1quina%20Late%20-%20HackTheBox%20-%20P%C3%A1gina%20de%20c04tl&amp;u=https://c04tl.github.io/posts/HTB-Late/" data-toggle="tooltip" data-placement="top" title="Facebook" target="_blank" rel="noopener" aria-label="Facebook"> <i class="fa-fw fab fa-facebook-square"></i> </a> <a href="https://telegram.me/share?text=Resoluci%C3%B3n%20de%20m%C3%A1quina%20Late%20-%20HackTheBox%20-%20P%C3%A1gina%20de%20c04tl&amp;url=https://c04tl.github.io/posts/HTB-Late/" data-toggle="tooltip" data-placement="top" title="Telegram" target="_blank" rel="noopener" aria-label="Telegram"> <i class="fa-fw fab fa-telegram"></i> </a> <i id="copy-link" class="fa-fw fas fa-link small" data-toggle="tooltip" data-placement="top" title="Copiar link" title-succeed="¡Link copiado!"> </i> </span>
+</div>
+</div>
+</div>
+</div></div>
+<div id="panel-wrapper" class="col-xl-3 pl-2 text-muted topbar-down">
+<div class="access">
+<div id="access-lastmod" class="post"> <span>Reciente</span><ul class="post-content pl-0 pb-1 ml-1 mt-2">
+<li><a href="/posts/THM-Blog/">Resolución de máquina Blog - TryHackMe</a></li>
+<li><a href="/posts/Bypass-Nginx-403-Forbbiden/">Bypass de código 403 Forbidden en Nginx</a></li>
+</ul>
+</div>
+<div id="access-tags"> <span>Etiquetas populares</span><div class="d-flex flex-wrap mt-3 mb-1 mr-3"> <a class="post-tag" href="/tags/bash/">bash</a> <a class="post-tag" href="/tags/python/">python</a> <a class="post-tag" href="/tags/reverse-shell/">reverse shell</a> <a class="post-tag" href="/tags/ssh/">ssh</a> <a class="post-tag" href="/tags/strings/">strings</a> <a class="post-tag" href="/tags/attr/">attr</a> <a class="post-tag" href="/tags/bloquedo-de-malware/">Bloquedo de Malware</a> <a class="post-tag" href="/tags/chmod/">chmod</a> <a class="post-tag" href="/tags/chown/">chown</a> <a class="post-tag" href="/tags/configuraci%C3%B3n-de-red/">Configuración de red</a>
+</div>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.js"></script><div id="toc-wrapper" class="pl-0 pr-4 mb-5"> <span class="pl-3 pt-2 mb-2">Contenidos</span><nav id="toc" data-toggle="toc"></nav>
+</div>
+</div>
+</div>
+<div class="row"><div class="col-12 col-lg-11 col-xl-8"><div id="post-extend-wrapper" class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4">
+<div id="related-posts" class="mt-5 mb-2 mb-sm-4">
+<h3 class="pt-2 mt-1 mb-4 ml-1" data-toc-skip>Relacionados</h3>
+<div class="card-deck mb-4">
+<div class="card"> <a href="/posts/Shell-interactiva/"><div class="card-body"> <span class="timeago small">Mar 16, 2021<i class="unloaded">2021-03-16T12:00:00-06:00</i> </span><h3 class="pt-0 mt-1 mb-3" data-toc-skip>Como obtener una shell interactiva a partir de una dumbshell</h3>
+<div class="text-muted small"><p> Introducción Generalmente cuando obtenemos acceso a través de una conexión inversa o Reverse Shell nos encontramos con el problema que no podemos usar el autocompletado de la consola, a veces el c...</p></div>
+</div></a>
+</div>
+<div class="card"> <a href="/posts/BlackArch-custom/"><div class="card-body"> <span class="timeago small">Jan 4, 2023<i class="unloaded">2023-01-04T11:00:00-06:00</i> </span><h3 class="pt-0 mt-1 mb-3" data-toc-skip>Personalización de blackarch</h3>
+<div class="text-muted small"><p> Introducción En este primer articulo del año 2023 veremos como instalar y personalizar un entorno de hacking profesional comenzando por la instalación del sistema operativo Arch Linux y toda la co...</p></div>
+</div></a>
+</div>
+<div class="card"> <a href="/posts/THM-Recovery/"><div class="card-body"> <span class="timeago small">Nov 25, 2021<i class="unloaded">2021-11-25T00:00:00-06:00</i> </span><h3 class="pt-0 mt-1 mb-3" data-toc-skip>Resolución de máquina Recovery - TryHackMe</h3>
+<div class="text-muted small"><p> Introducción Bienvenidos a mi página y a este post donde veremos como solucionar la máquina Recovery de TryHackMe. Cabe aclarar que en esta máquina no estaremos vulnerando nada sino todo lo contra...</p></div>
+</div></a>
+</div>
+</div>
+</div>
+<div class="post-navigation d-flex justify-content-between"> <a href="/posts/THM-Blog/" class="btn btn-outline-primary" prompt="Más antiguo"><p>Resolución de máquina Blog - TryHackMe</p></a> <a href="/posts/BlackArch-custom/" class="btn btn-outline-primary" prompt="Más nuevo"><p>Personalización de blackarch</p></a>
+</div>
+</div></div></div>
+<footer class="d-flex w-100 justify-content-center"><div class="d-flex justify-content-between align-items-center">
+<div class="footer-left"><p class="mb-0"> © 2025 <a href="https://twitter.com/c04tl">Luis Medina</a>. <span data-toggle="tooltip" data-placement="top" title="Except where otherwise noted, the blog posts on this site are licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) License by the author.">Some rights reserved.</span></p></div>
+<div class="footer-right"><p class="mb-0"> Powered by <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> with <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a> theme.</p></div>
+</div></footer>
+</div>
+<div id="search-result-wrapper" class="d-flex justify-content-center unloaded"><div class="col-12 col-sm-11 post-content">
+<div id="search-hints">
+<h4 class="text-muted mb-4">Etiquetas populares</h4>
+<a class="post-tag" href="/tags/bash/">bash</a> <a class="post-tag" href="/tags/python/">python</a> <a class="post-tag" href="/tags/reverse-shell/">reverse shell</a> <a class="post-tag" href="/tags/ssh/">ssh</a> <a class="post-tag" href="/tags/strings/">strings</a> <a class="post-tag" href="/tags/attr/">attr</a> <a class="post-tag" href="/tags/bloquedo-de-malware/">Bloquedo de Malware</a> <a class="post-tag" href="/tags/chmod/">chmod</a> <a class="post-tag" href="/tags/chown/">chown</a> <a class="post-tag" href="/tags/configuraci%C3%B3n-de-red/">Configuración de red</a>
+</div>
+<div id="search-results" class="d-flex flex-wrap justify-content-center text-muted mt-3"></div>
+</div></div>
+</div><div id="mask"></div><a id="back-to-top" href="#" aria-label="back-to-top" class="btn btn-lg btn-box-shadow" role="button"> <i class="fas fa-angle-up"></i> </a> <script src="https://cdn.jsdelivr.net/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js"></script> <script> SimpleJekyllSearch({ searchInput: document.getElementById('search-input'), resultsContainer: document.getElementById('search-results'), json: '/assets/js/data/search.json', searchResultTemplate: '<div class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-lg-4 pr-lg-4 pl-xl-0 pr-xl-0"> <a href="{url}">{title}</a><div class="post-meta d-flex flex-column flex-sm-row text-muted mt-1 mb-1"> {categories} {tags}</div><p>{snippet}</p></div>', noResultsText: '<p class="mt-5">Oops! no hay resultados.</p>', templateMiddleware: function(prop, value, template) { if (prop === 'categories') { if (value === '') { return `${value}`; } else { return `<div class="mr-sm-4"><i class="far fa-folder fa-fw"></i>${value}</div>`; } } if (prop === 'tags') { if (value === '') { return `${value}`; } else { return `<div><i class="fa fa-tag fa-fw"></i>${value}</div>`; } } } }); </script> <script src="https://cdn.jsdelivr.net/combine/npm/lozad/dist/lozad.min.js,npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/clipboard@2/dist/clipboard.min.js"></script> <script defer src="/assets/js/dist/post.min.js"></script> <script src="https://cdn.jsdelivr.net/combine/npm/popper.js@1.16.1,npm/bootstrap@4/dist/js/bootstrap.min.js"></script> <script defer src="/app.js"></script> <script defer src="https://www.googletagmanager.com/gtag/js?id="></script> <script> document.addEventListener("DOMContentLoaded", function(event) { window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', ''); }); </script>
