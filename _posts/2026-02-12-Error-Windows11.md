@@ -1,6 +1,6 @@
 ---
 title: Reparando Windows 11 qué no arranca
-date: 2026-02-12 22:30:00 +/-TTTT
+date: 2026-02-12 22:40:00 +/-TTTT
 categories: [Tutorial, DIY]
 tags: [windows, cmd, command prompt]
 ---
@@ -125,3 +125,4 @@ Ahora ejecutamos `exit`, esto nos regresa al menú principal y ahora sí nos apa
 
 
 Este error **NUNCA** me había pasado y es relativamente sencillo reparar windows con herramientas que ya trae el propio SO, además de eso, tambien aprendí a tener paciencia y analizar con más detenimiento el error antes de asumir lo peor, en este caso pasar por todo el proceso de recuperar mis archivos, formatear y luego dejar mi lap como me gusta.
+
