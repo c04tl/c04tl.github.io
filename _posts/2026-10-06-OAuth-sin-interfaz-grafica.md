@@ -1,6 +1,6 @@
 ---
 title: ¿Cómo autenticarse con OAuth sin interfaz gráfica raspberry pi Zero 2W?
-date: 2026-10-05 17:00:00 +/-TTTT
+date: 2026-10-05 09:20:00 +/-TTTT
 categories:
   - How-To
 tags:
