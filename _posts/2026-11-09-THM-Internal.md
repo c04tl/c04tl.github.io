@@ -22,15 +22,15 @@ sudo nmap -Pn -n -p- --open -sSVC --min-rate 4000 internal.thm
 ```
 
 Y aquí hacemos un desgloce de las opciones usadas:
-- ´Pn´ omite un ping inicial para comprobar el estado del servidor
-- ´n´ Omite consultar los DNS para hacer la traducción correspondiente
-- ´-p-´ escaneo todos los puertos 0-36536
-- ´open´ muestra solo los puertos abiertos en el resultado
-- ´sSVC´ comprende 3 opciones en una "abreviación":
-    - ´sS´ escaneo stealth o sigiloso (necesita permisos sudo)
-    - ´sV´ Muestra las versiones de los servicios detectados
-    - ´sC´ ejecuta una serie de scripts para descubrimiento
-- ´min-rate 4000´ envia paquetes a una velocidad no menor a 4000 paquetes por segundo
+- `Pn` omite un ping inicial para comprobar el estado del servidor
+- `n` Omite consultar los DNS para hacer la traducción correspondiente
+- `-p-` escaneo todos los puertos 0-65535
+- `open` muestra solo los puertos abiertos en el resultado
+- `sSVC` comprende 3 opciones en una "abreviación":
+    - `sS` escaneo stealth o sigiloso (necesita permisos sudo)
+    - `sV` Muestra las versiones de los servicios detectados
+    - `sC` ejecuta una serie de scripts para descubrimiento
+- `min-rate 4000` envia paquetes a una velocidad no menor a 4000 paquetes por segundo
 
 
 
