@@ -1,5 +1,5 @@
 ---
-title: ¿Cómo autenticarse con OAuth sin interfaz gráfica raspberry pi Zero 2W?
+title: Cómo autenticarse con OAuth sin interfaz gráfica raspberry pi Zero 2W
 date: 2026-10-05 09:20:00 +/-TTTT
 categories:[Tutorial, DIY]
 tags:[ssh, linux, networking, bash, ssh-tunnel, codex, supabase]
