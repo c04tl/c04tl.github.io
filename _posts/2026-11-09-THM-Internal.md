@@ -1,6 +1,6 @@
 ---
 title: Resolución de máquina Internal - TryHackMe
-date: 2022-11-11 19:00:00 +/-TTTT
+date: 2022-11-11 18:00:00 +/-TTTT
 categories: [CTF, TryHackMe]
 tags: [hydra, wordpress, nmap, reverse shell, find, reverse proxy]
 ---
