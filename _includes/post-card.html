@@ -1,0 +1,7 @@
+{% assign post = include.post %}
+<article class="card" data-entry data-kind="{{ post.categories | jsonify | escape }}">
+<img class="cover" src="{{ post.card_image | relative_url | escape }}" alt="" width="640" height="360" loading="lazy">
+<div class="card-body"><h2><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h2>
+<p>{{ post.card_summary | escape }}</p>
+<div class="meta">{% include date.html value=post.date %} · {{ post.reading_minutes }} min de lectura</div></div>
+<span hidden data-keywords>{{ post.tags | join: ' ' | escape }}</span></article>

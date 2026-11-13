@@ -1,0 +1,15 @@
+---
+layout: default
+title: Recursos
+permalink: /recursos/
+---
+<header class="section-head"><h1>Recursos</h1><p>Cheatsheets, laboratorios Docker y guías prácticas.</p></header>
+<section data-catalog aria-label="Catálogo de recursos">
+{% assign resources = site.recursos | sort_natural: 'title' %}
+{% assign kinds = resources | map: 'tipo' | uniq | sort_natural %}
+{% include controls.html kinds=kinds placeholder='Buscar recursos…' filter_label='Filtrar por tipo' %}
+{% if resources.size > 0 %}
+<div class="grid">{% for resource in resources %}{% include resource-card.html resource=resource %}{% endfor %}</div>
+<p class="empty" data-no-results hidden>No hay recursos que coincidan con la búsqueda.</p>
+{% else %}<p class="empty">Todavía no hay recursos publicados.</p>{% endif %}
+</section>

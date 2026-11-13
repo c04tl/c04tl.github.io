@@ -1,0 +1,29 @@
+.post-head { padding-block: clamp(2rem, 5vw, 4rem) 1.4rem; }
+.post-head h1 { font-size: clamp(1.85rem, 4vw, 3.1rem); margin-bottom: .4em; }
+.post-head .meta { font-size: .9rem; }
+.tags { padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: .55rem; margin-block: .8rem; }
+.tags a { display: block; text-decoration: none; font-size: .9rem; }
+.tags a:hover { color: var(--accent); }
+.toc { border: 1px solid var(--edge); border-radius: .6rem; background: var(--panel); padding: .75rem 1rem; margin-bottom: 1.6rem; }
+.toc summary { cursor: pointer; font-weight: 700; }
+.prose { line-height: 1.75; overflow-wrap: anywhere; }
+.prose img { max-width: 100%; height: auto; }
+.prose pre { overflow: auto; background: var(--panel); border: 1px solid var(--edge); padding: 1rem; border-radius: .5rem; }
+.prose pre code { overflow-wrap: normal; }
+.prose :not(pre) > code { background: var(--panel); padding: .12em .28em; }
+.prose blockquote { border-inline-start: .2rem solid var(--accent); padding-inline-start: 1rem; margin-inline: 0; }
+.prose table { display: block; overflow-x: auto; border-collapse: collapse; }
+.prose td,.prose th { border: 1px solid var(--edge); padding: .4rem; }
+.prose .highlight .k,.prose .highlight .kd { color: var(--accent); }
+.prose .highlight .s,.prose .highlight .s1,.prose .highlight .s2 { color: light-dark(#8d4024, #ffb6a0); }
+.prose .highlight .c,.prose .highlight .c1 { color: var(--muted); }
+.year { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 1rem; margin-bottom: 1.4rem; }
+.year h2 { color: var(--accent); font-size: 1.25rem; margin: .4rem 0 0; }
+.timeline { list-style: none; padding: 0; margin: 0; }
+.timeline a { display: grid; gap: .2rem; text-decoration: none; color: var(--text); border: 1px solid var(--edge); background: var(--panel); padding: .7rem 1rem; border-radius: .6rem; margin-bottom: .55rem; }
+.timeline a:hover { border-color: var(--accent); color: var(--accent); }
+.timeline .meta { font-size: .9rem; }
+.profile { display: flex; gap: 1rem; align-items: center; margin-bottom: 1.5rem; }
+.profile h2 { margin-bottom: .1rem; }
+.avatar { color: var(--accent); background: var(--panel); border: 1px solid var(--edge); border-radius: .7rem; padding: .55em; font: 700 2.4rem var(--mono); }
+@media (max-width: 480px) { .year { grid-template-columns: 1fr; gap: .3rem; } }

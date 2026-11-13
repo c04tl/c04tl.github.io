@@ -1,4 +1,11 @@
 ---
-layout: home
-# Index page
+layout: default
+title: Artículos
 ---
+<header class="section-head"><h1>Artículos</h1><p>{{ site.description | escape }}</p></header>
+<section data-catalog aria-label="Catálogo de artículos">
+{% assign kinds = site.categories | map: 'first' | sort_natural %}
+{% include controls.html kinds=kinds placeholder='Buscar artículos…' %}
+<div class="grid">{% for post in site.posts %}{% include post-card.html post=post %}{% endfor %}</div>
+<p class="empty" data-no-results hidden>No hay artículos que coincidan con la búsqueda.</p>
+</section>

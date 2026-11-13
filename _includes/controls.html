@@ -1,0 +1,7 @@
+<div class="controls" data-controls hidden>
+<div class="filters" role="group" aria-label="{{ include.filter_label | default: 'Filtrar por categoría' }}">
+<button type="button" data-filter="" aria-pressed="true">Todos</button>
+{% for kind in include.kinds %}<button type="button" data-filter="{{ kind | escape }}" aria-pressed="false">{{ kind | escape }}</button>{% endfor %}
+</div>
+<label class="search"><span class="sr-only">{{ include.placeholder }}</span><input type="search" data-search placeholder="{{ include.placeholder }}"></label>
+</div><p role="status" class="sr-only" data-status></p>

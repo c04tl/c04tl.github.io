@@ -1,46 +1,64 @@
-# Chirpy Starter [![Gem Version](https://img.shields.io/gem/v/jekyll-theme-chirpy)](https://rubygems.org/gems/jekyll-theme-chirpy) [![GitHub license](https://img.shields.io/github/license/cotes2020/chirpy-starter.svg?color=blue)][mit]
+# Página de c04tl
 
-When installing the [**Chirpy**][chirpy] theme through [RubyGems.org][gem], Jekyll can only read files in the folders `_includes`, `_layout`, `_sass` and `assets`, as well as a small part of options of the `_config.yml` file from the theme's gem. If you have ever installed this theme gem, you can use the command `bundle info --path jekyll-theme-chirpy` to locate these files.
+Tema propio de Jekyll para [c04tl.github.io](https://c04tl.github.io).
 
-The Jekyll organization claims that this is to leave the ball in the user’s court, but this also results in users not being able to enjoy the out-of-the-box experience when using feature-rich themes.
+## Publicar un artículo
 
-To fully use all the features of **Chirpy**, you need to copy the other critical files from the theme's gem to your Jekyll site. The following is a list of targets:
+Crea `_posts/AAAA-MM-DD-nombre.md` con estos metadatos y escribe el cuerpo en Markdown:
 
-```shell
-.
-├── _config.yml
-├── _data
-├── _plugins
-├── _tabs
-└── index.html
+```yaml
+---
+title: Mi artículo
+description: Una descripción breve.
+categories: [Linux]
+tags: [bash]
+image: /assets/img/mi-portada.webp
+---
 ```
 
-In order to save your time, and to prevent you from missing some files when copying, we extract those files/configurations of the latest version of the **Chirpy** theme and the [CD][CD] workflow to here, so that you can start writing in minutes.
+La fecha se toma del nombre del archivo si no indicas `date`. Puedes definir
+`last_modified_at` para mostrar una fecha de actualización explícita. Si omites
+`image` o `description`, el tema usa una imagen del artículo o la portada
+predeterminada, y un extracto. El tiempo de lectura se estima a 200 palabras
+por minuto. Usa encabezados `##` y `###` en el cuerpo para la tabla de contenidos.
 
-## Prerequisites
+## Publicar un recurso
 
-Follow the instructions in the [Jekyll Docs](https://jekyllrb.com/docs/installation/) to complete the installation of `Ruby`, `RubyGems`, `Jekyll` and `Bundler`.
+Sube el adjunto a `assets/recursos/` y crea una ficha `_recursos/mi-recurso.md`:
 
-## Installation
-
-[**Use this template**][use-template] to generate a brand new repository and name it `<GH_USERNAME>.github.io`, where `GH_USERNAME` represents your GitHub username.
-
-Then clone it to your local machine and run:
-
+```yaml
+---
+title: Comandos esenciales de Linux
+description: Una referencia rápida para la terminal.
+tipo: Cheatsheet
+archivo: /assets/recursos/comandos-linux.pdf
+---
 ```
-$ bundle
+
+Usa nombres de archivo sin espacios. El tema obtiene el formato y el tamaño
+del adjunto. Los recursos aparecen en el catálogo y se pueden buscar por
+título, descripción o tipo.
+
+## Vista previa y publicación
+
+Con Ruby 3.3 y Bundler (RubyInstaller con Devkit en Windows), ejecuta:
+
+```sh
+bundle install
+bundle exec jekyll serve
 ```
 
-## Usage
+Abre http://localhost:4000. Para verificar una compilación:
 
-Please see the [theme's docs](https://github.com/cotes2020/jekyll-theme-chirpy#usage).
+```sh
+bundle exec jekyll build
+bundle exec ruby tools/check-site.rb
+```
 
-## License
+Al activar el nuevo flujo por primera vez, selecciona **GitHub Actions** en
+**Settings → Pages → Build and deployment → Source**. Después, cada cambio
+integrado en `main` compila, valida y publica el sitio automáticamente.
+Las solicitudes de cambios se validan sin publicar.
 
-This work is published under [MIT][mit] License.
-
-[gem]: https://rubygems.org/gems/jekyll-theme-chirpy
-[chirpy]: https://github.com/cotes2020/jekyll-theme-chirpy/
-[use-template]: https://github.com/cotes2020/chirpy-starter/generate
-[CD]: https://en.wikipedia.org/wiki/Continuous_deployment
-[mit]: https://github.com/cotes2020/chirpy-starter/blob/master/LICENSE
+El menú está en `_data/navigation.yml`, la paleta en `_sass/_theme.scss`
+y las plantillas en `_layouts/` y `_includes/`.

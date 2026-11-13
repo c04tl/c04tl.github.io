@@ -1,0 +1,3 @@
+<div class="narrow"><header class="section-head"><h1>{{ include.title }}</h1></header>
+<ul class="tags">{% assign entries = include.entries | sort %}
+{% for entry in entries %}<li><a href="{{ entry[0] | slugify | prepend: include.prefix | append: '/' | relative_url }}">{{ entry[0] | escape }} ({{ entry[1].size }})</a></li>{% endfor %}</ul></div>

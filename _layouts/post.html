@@ -1,0 +1,13 @@
+---
+layout: default
+---
+<article class="narrow"><header class="post-head">
+<h1>{{ page.title | escape }}</h1>
+<p class="meta">Publicado el {% include date.html value=page.date %}{% if page.updated_on %} · Actualizado el {% include date.html value=page.updated_on %}{% endif %} · {{ page.reading_minutes }} min de lectura</p>
+{% if page.tags.size > 0 %}<ul class="tags" aria-label="Etiquetas">{% for tag in page.tags %}
+<li><a href="{{ tag | slugify | prepend: '/tags/' | append: '/' | relative_url }}">{{ tag | escape }}</a></li>{% endfor %}</ul>{% endif %}
+</header>
+{% if page.toc and page.outline.size > 0 %}<nav class="toc" aria-label="En este artículo"><details open><summary>En este artículo</summary><ul>
+{% for heading in page.outline %}<li><a href="#{{ heading.id | escape }}">{{ heading.title | escape }}</a></li>{% endfor %}
+</ul></details></nav>{% endif %}
+<div class="prose">{{ content }}</div></article>

@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="es"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+{% seo %}{% feed_meta %}
+<link rel="stylesheet" href="{{ '/assets/css/blog.css' | relative_url }}">
+<script src="{{ '/assets/js/theme.js' | relative_url }}"></script>
+<script defer src="{{ '/assets/js/catalog.js' | relative_url }}"></script>
+</head><body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+{% include header.html %}
+<main id="contenido" class="wrap">{{ content }}</main>
+<footer class="wrap footer"><a href="{{ '/' | relative_url }}">c04tl</a> · <a href="{{ '/feed.xml' | relative_url }}">RSS</a> · <a href="{{ '/categories/' | relative_url }}">Categorías</a> · <a href="{{ '/tags/' | relative_url }}">Etiquetas</a></footer>
+</body></html>

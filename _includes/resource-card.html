@@ -1,0 +1,6 @@
+{% assign resource = include.resource %}
+<article class="card" data-entry data-kind="{{ resource.tipo | jsonify | escape }}">
+<div class="card-body"><span class="badge">{{ resource.tipo | escape }}</span><h2>{{ resource.title | escape }}</h2>
+<p>{{ resource.description | escape }}</p>
+<p class="meta">{{ resource.file_format | escape }} · {{ resource.file_size | escape }}</p>
+<a class="download" href="{{ resource.archivo | relative_url | escape }}" download aria-label="Descargar {{ resource.title | escape }}">Descargar {{ resource.file_format | escape }}</a></div></article>

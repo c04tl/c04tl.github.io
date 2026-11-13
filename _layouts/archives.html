@@ -1,0 +1,7 @@
+---
+layout: default
+---
+<div class="narrow"><header class="section-head"><h1>Archivo</h1><p>Publicaciones por año</p></header>
+{% assign years = site.posts | group_by_exp: 'post', "post.date | date: '%Y'" %}
+{% for year in years %}<section class="year"><h2>{{ year.name }}</h2><ul class="timeline">
+{% for post in year.items %}{% include archive-row.html post=post %}{% endfor %}</ul></section>{% endfor %}</div>

@@ -1,0 +1,8 @@
+<header class="site-header"><div class="wrap header-row">
+<a class="brand" href="{{ '/' | relative_url }}"><span aria-hidden="true">&gt;_</span> c04tl</a>
+<span class="tagline">{{ site.tagline | escape }}</span>
+<button id="menu-toggle" hidden type="button" aria-expanded="false" aria-controls="main-nav">Menú</button>
+<nav id="main-nav" aria-label="Menú principal">{% for item in site.data.navigation %}
+<a href="{{ item.url | relative_url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.label | escape }}</a>{% endfor %}</nav>
+<button id="theme-toggle" hidden type="button" aria-label="Tema claro" aria-pressed="false">◐</button>
+</div></header>

@@ -1,0 +1,5 @@
+---
+layout: default
+---
+<div class="narrow"><header class="section-head"><h1>{{ page.title | escape }}</h1></header>
+<ul class="timeline">{% for post in page.posts %}{% include archive-row.html post=post %}{% endfor %}</ul></div>

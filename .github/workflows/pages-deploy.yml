@@ -1,29 +1,51 @@
-name: 'Automatic build'
+name: Compilar y publicar el blog
 on:
+  pull_request:
   push:
-    branches:
-      - main
-    paths-ignore:
-      - .gitignore
-      - README.md
-      - LICENSE
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
-  continuous-delivery:
-
+  build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v6
         with:
-          fetch-depth: 0  # for posts's lastmod
-
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
+          fetch-depth: 0
+      - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.7
+          ruby-version: '3.3'
           bundler-cache: true
+      - name: Compilar
+        run: bundle exec jekyll build
+        env:
+          JEKYLL_ENV: production
+      - name: Verificar rutas y contenido
+        run: bundle exec ruby tools/check-site.rb
+      - name: Probar descarga Markdown en una compilación aislada
+        run: bundle exec ruby tools/check-resource.rb
+      - uses: actions/upload-pages-artifact@v4
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        with:
+          path: _site
 
-      - name: Deploy
-        run: bash tools/deploy.sh
+  deploy:
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    concurrency:
+      group: github-pages
+      cancel-in-progress: false
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - name: Publicar en GitHub Pages
+        id: deploy
+        uses: actions/deploy-pages@v4
