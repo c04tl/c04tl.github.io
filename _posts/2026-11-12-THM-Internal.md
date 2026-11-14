@@ -10,7 +10,7 @@ tags: [hydra, wordpress, nmap, reverse shell, find, reverse proxy]
 Bienvenidos a mi página y a este post donde veremos el recorrido sobre como solucionar la máquina Internal de TryHackMe.
 La resolución de esta máquina la realizamos con la comunidad de **[Twitch](https://www.twitch.tv/c04tl)** y de acuerdo con el room, se recomienda crear un reporte de Pentesting.
 
-Nosotros hicimos uno muy, muy sencillo pero aquí pongo el enlace a la sección de recursos para descargarlo: [Reporte](/assets/recursos/)
+Nosotros hicimos uno muy, muy sencillo pero aquí pongo el enlace a la sección de recursos para descargarlo: [Recursos](/recursos/)
 
 Para comenzar, tenemos que agregar la dirección IP de la máquina en nuestro archivo `/etc/hosts` con el nombre internal.thm.
 
