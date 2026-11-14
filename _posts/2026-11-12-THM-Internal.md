@@ -36,10 +36,18 @@ Y aquí hacemos un desgloce de las opciones usadas:
 
 Como resultado obtuvimos lo siguiente:
 
+[Imagen de nmap]
+
+
+Comenzando por el puerto `80` vamos explorando la aplicación para **Enumerar** la tecnología del sitio con whatweb
+
+[imagen de whatweb]
+
+
+Si intentamos iniciar sesión con un par de credenciales de prueba, el portal de login de Wordpress nos regresa un error especifico diciendo que el usuario es desconocido, por lo tanto podemos probar una enumeración de usuarios con hydra con la siguiente línea de comandos.
+
 ```shell
-nmap
+hydra -L /usr/share/nmap/nselib/data/usernames.lst -p A internal.thm http-form-post "/blog/wp-login.php:log=^USER^&pwd^PASS^&wp-submit=Log+In:F=Unknown username."
 ```
 
-
-Comenzando por el puerto `80` vamos explorando la aplicación para **Enumerar** detectar su tecnología
 
