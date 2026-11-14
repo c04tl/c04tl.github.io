@@ -66,12 +66,12 @@ gobuster dir -u http://internal.thm/wordpress -w /usr/share/wordlists/common.txt
 
 ![gobuster](/assets/img/10-THM-Internal/4-gobuster.png)
 
-Ahí encontrramos el login de adminsitración `wp-admin` y si intentamos iniciar sesión con un par de credenciales de prueba, el login noss regresa un error no generico diciendo que el usuario es desconocido:
+Ahí encontramos el login de adminsitración `wp-admin` y si intentamos iniciar sesión con un par de credenciales de prueba, el login noss regresa un error NO GENERICO diciendo que el usuario es desconocido:
 
 
 ![wordpress-login](/assets/img/10-THM-Internal/5-wordpress-login.png)
 
-Con lo anterior en mente, podemos aprovechar el error y hacer una enumeración de usuarios con hydra con la siguiente línea de comandos.
+Aquí nos aprovechamos el error y hacemos una enumeración de usuarios con hydra con la siguiente línea de comandos.
 
 ```shell
 hydra -L /usr/share/nmap/nselib/data/usernames.lst -p A internal.thm http-form-post "/blog/wp-login.php:log=^USER^&pwd^PASS^&wp-submit=Log+In:F=Unknown username."
