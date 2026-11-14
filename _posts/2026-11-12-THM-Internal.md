@@ -36,18 +36,78 @@ Y aquí hacemos un desgloce de las opciones usadas:
 
 Como resultado obtuvimos lo siguiente:
 
-[Imagen de nmap]
+![nmap](/assets/img/10-THM-Internal/1-nmap.png)
+
+Comenzando por el puerto `80` vamos explorando la aplicación para **Enumerar** la tecnología del sitio con `whatweb`:
+
+![whatweb](/assets/img/10-THM-Internal/2-whatweb.png)
+
+Ahora exploramos los directorios del sitio con `gobuster` con la siguiente línea de comandos:
+
+```shell
+gobuster dir -u http://internal.thm -w /usr/share/wordlists/common.txt -o directory-enum.txt
+```
+
+Y ahora desglozamos los parámetros:
+- `dir` Le indica a gobuster que se van a explorar directorios
+- `-u` URL a explorar
+- `-w` Lista de directorios a usar
+- `-o` Archivo donde se guardarán los resultados
+
+En los resultados podemos ver que se encontró el directorio wordpress
+
+![gobuster](/assets/img/10-THM-Internal/3-gobuster.png)
+
+En esta parte pensé en buscar el portal de login de wordpress y volví a hacer una exploración de directorios con la sig modificación:
+
+```shell
+gobuster dir -u http://internal.thm/wordpress -w /usr/share/wordlists/common.txt
+```
+
+![gobuster](/assets/img/10-THM-Internal/4-gobuster.png)
+
+Ahí encontrramos el login de adminsitración `wp-admin` y si intentamos iniciar sesión con un par de credenciales de prueba, el login noss regresa un error no generico diciendo que el usuario es desconocido:
 
 
-Comenzando por el puerto `80` vamos explorando la aplicación para **Enumerar** la tecnología del sitio con whatweb
+![wordpress-login](/assets/img/10-THM-Internal/5-wordpress-login.png)
 
-[imagen de whatweb]
-
-
-Si intentamos iniciar sesión con un par de credenciales de prueba, el portal de login de Wordpress nos regresa un error especifico diciendo que el usuario es desconocido, por lo tanto podemos probar una enumeración de usuarios con hydra con la siguiente línea de comandos.
+Con lo anterior en mente, podemos aprovechar el error y hacer una enumeración de usuarios con hydra con la siguiente línea de comandos.
 
 ```shell
 hydra -L /usr/share/nmap/nselib/data/usernames.lst -p A internal.thm http-form-post "/blog/wp-login.php:log=^USER^&pwd^PASS^&wp-submit=Log+In:F=Unknown username."
 ```
+
+Ahora explicamos todas los parametros del ataque:
+
+- `-L` Lista de usuarios para el ataque
+- `-p A` Indica una contraseña estática, enn este caso "A"
+- `http-form-post` Indica a hydra que es un envío de formulario por méodo POST
+- `^USER^` Indica el lugar donde se pondran cada usuario de la Lista
+- `^PASS^` Indica el lugar donde se pondrá la contraseña configurada (A)
+- `F=` Indica el mensaje de error a buscar en la respuesta
+
+Despues de este ataque obtenemos los usuarios válidos, en este caso, solo es `admin`
+
+![Hydra](/assets/img/10-THM-Internal/6-hydra.png)
+
+Y podemos confirmarlo en la página de login de Wordpress poniendo el usuario Admin y cualquier texto como contraseña, haciéndolo, nos responderá con este mensaje de error:
+
+![Hydra](/assets/img/10-THM-Internal/7-wordpress.png)
+
+
+Para encontrar la contraseña ahora dejamos el usuario estático (admin) y configuramos una lista de contraseñas a probar, en esta línea de comandos vamos a ver la diferencia en el parametro `-l` para un solo usuario y `-P` para una lista de contraseñas:
+
+```shell
+hydra -l admin -P /usr/share/nmap/nselib/data/passwords.lst internal.thm http-form-post "/blog/wp-login.php:log=^USER^&pwd^PASS^&wp-submit=Log+In:F=Unknown username."
+```
+
+como resultado tenemos la contraseña `my2boys`:
+
+![Hydra](/assets/img/10-THM-Internal/8-hydra.png)
+
+
+Una vez que ingresamos con las credenciales encontradas nos sale este mensaje en wordpress:
+
+![Hydra](/assets/img/10-THM-Internal/9-wordpress.png)
 
 
