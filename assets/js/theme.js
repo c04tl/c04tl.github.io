@@ -28,5 +28,9 @@
       try { localStorage.setItem('c04tl-theme', root.dataset.theme); } catch {}
       sync();
     });
+    const header = document.querySelector('.site-header');
+    const measureHeader = () => root.style.setProperty('--header-height', `${header.offsetHeight}px`);
+    measureHeader();
+    new ResizeObserver(measureHeader).observe(header);
   });
 })();
