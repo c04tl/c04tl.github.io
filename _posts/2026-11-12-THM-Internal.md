@@ -111,4 +111,27 @@ Una vez que ingresamos con las credenciales encontradas nos sale este mensaje en
 ![Hydra](/assets/img/10-THM-Internal/9-wordpress.png)
 
 
+Ya que tenemos el acceso confirmado, exploraramos un poco la página y nos podemos dar cuenta que usa el tema `twenty seventeen` que nos deja escribir código php directamente en las plantillas de las páginas del sitio.
+
+![Dashboard](/assets/img/10-THM-Internal/10-dashboard.png)
+
+
+
+
+Con esto en mente podemos poner esta [reverse shell en php](https://github.com/pentestmonkey/php-reverse-shell) de pentestmonkey en la plantilla `404.php`:
+
+![reverse shell](/assets/img/10-THM-Internal/11-reverse-shell.png)
+
+
+Despues de guardar los cambios en la plantilla 404, basta con hacer que se cargue para que nos de una reverse shell.
+
+![reverse shell](/assets/img/10-THM-Internal/12-reverse-shell.png)
+
+
+Ya que tenemos la reverse shell, toca convertirla en una full-interactive shell siguiendo mi [post](https://c04tl.github.io/posts/Shell-interactiva/).Despues de tener nuestra shell interactiva, epxloramos el servidor y encontramos en `/opt` un archivo interesante con la contraseña de la usuaria `Aubreanna`, esta contraseña resulta muy conveniente pues nos podemos conectar por `ssh` y esto nos permite capturar la primer flag.
+
+
+
+![ssh](/assets/img/10-THM-Internal/12-user.png)
+
 
