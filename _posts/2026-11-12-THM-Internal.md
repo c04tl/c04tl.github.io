@@ -132,6 +132,6 @@ Ya que tenemos la reverse shell, toca convertirla en una full-interactive shell 
 
 
 
-![ssh](/assets/img/10-THM-Internal/12-user.png)
+![ssh](/assets/img/10-THM-Internal/13-usr.png)
 
 
