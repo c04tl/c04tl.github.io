@@ -5,6 +5,8 @@
   color-scheme: dark;
   --bg: #0a0f1a; --panel: #101a28; --text: #eef4fc; --muted: #b4c4d9;
   --edge: #426078; --accent: #2dd4bf; --ink: #031e1a; --glow: #153b40;
+  --inline-code-bg: #173842; --inline-code-text: #a9f5e8;
+  --header-height: calc(4.75rem + 1px);
   --mono: 'Space Mono', ui-monospace, Consolas, monospace;
   --sans: 'Space Grotesk', system-ui, sans-serif;
 }
@@ -12,7 +14,9 @@
   color-scheme: light;
   --bg: #f0f5f8; --panel: #fff; --text: #142236; --muted: #425670;
   --edge: #7990a5; --accent: #006c61; --ink: #fff; --glow: #d1f2e9;
+  --inline-code-bg: #d1eee6; --inline-code-text: #00483d;
 }
+html { scroll-padding-top: calc(var(--header-height) + .75rem); }
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
 body { margin: 0; background: radial-gradient(ellipse 740px 320px at 50% 100px, var(--glow), transparent), var(--bg); color: var(--text); font: 1.05rem/1.6 var(--sans); }
@@ -26,7 +30,7 @@ button { cursor: pointer; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 .wrap { width: min(100% - 2rem, 74rem); margin-inline: auto; }
 .narrow { max-width: 49rem; margin-inline: auto; }
-.site-header { border-bottom: 1px solid var(--edge); background: var(--bg); }
+.site-header { position: sticky; top: 0; z-index: 3; border-bottom: 1px solid var(--edge); background: var(--bg); }
 .header-row { min-height: 4.75rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; padding-block: .5rem; }
 .brand { text-decoration: none; color: var(--text); font-size: 1.4rem; font-weight: 700; white-space: nowrap; }
 .brand span { color: var(--accent); }
@@ -40,7 +44,7 @@ button { cursor: pointer; }
 .section-head p,.meta,.footer { color: var(--muted); }
 .footer { border-top: 1px solid var(--edge); margin-block: 4rem 0; padding-block: 1.25rem; font-size: .92rem; }
 .sr-only,.skip:not(:focus) { position: absolute; inline-size: 1px; block-size: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
-.skip:focus { display: inline-block; margin: .5rem; }
+.skip:focus { position: fixed; top: .5rem; inset-inline-start: .5rem; z-index: 4; background: var(--panel); padding: .4rem .75rem; }
 @media (max-width: 690px) {
   .tagline { display: none; }
   #menu-toggle { margin-inline-start: auto; }

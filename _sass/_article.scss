@@ -4,13 +4,72 @@
 .tags { padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: .55rem; margin-block: .8rem; }
 .tags a { display: block; text-decoration: none; font-size: .9rem; }
 .tags a:hover { color: var(--accent); }
-.toc { border: 1px solid var(--edge); border-radius: .6rem; background: var(--panel); padding: .75rem 1rem; margin-bottom: 1.6rem; }
+.post-body { max-width: 49rem; margin-inline: auto; }
+.post-content { min-width: 0; }
+.toc {
+  position: sticky;
+  top: calc(var(--header-height) + .5rem);
+  z-index: 2;
+  max-height: min(45vh, calc(100dvh - var(--header-height) - 1rem));
+  overflow: auto;
+  overflow-wrap: anywhere;
+  border: 1px solid var(--edge);
+  border-radius: .6rem;
+  background: var(--panel);
+  padding: .65rem 1rem;
+  margin-bottom: 1rem;
+}
 .toc summary { cursor: pointer; font-weight: 700; }
+.toc ul { padding-inline-start: 1.2rem; margin-block: .5rem 0; }
+.toc li + li { margin-top: .35rem; }
+@media (min-width: 72rem) {
+  .post-body-with-toc {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(12rem, 17rem);
+    gap: 2rem;
+    align-items: start;
+    max-width: 68rem;
+  }
+  .post-body-with-toc .post-content { grid-area: 1 / 1; }
+  .post-body-with-toc .toc {
+    grid-area: 1 / 2;
+    max-height: calc(100dvh - var(--header-height) - 1rem);
+    margin-bottom: 0;
+  }
+}
+@media (width < 72rem) {
+  .post-body-with-toc .prose :is(h2, h3)[id] { scroll-margin-top: 3.5rem; }
+}
 .prose { line-height: 1.75; overflow-wrap: anywhere; }
 .prose img { max-width: 100%; height: auto; }
 .prose pre { overflow: auto; background: var(--panel); border: 1px solid var(--edge); padding: 1rem; border-radius: .5rem; }
 .prose pre code { overflow-wrap: normal; }
-.prose :not(pre) > code { background: var(--panel); padding: .12em .28em; }
+.prose :not(pre) > code {
+  background: var(--inline-code-bg);
+  color: var(--inline-code-text);
+  border-radius: .3em;
+  padding: .12em .3em;
+  font-size: .92em;
+}
+.code-block { margin-block: 1em; }
+.code-block pre { margin: 0; }
+.code-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .45rem .75rem;
+  margin-bottom: .4rem;
+  font-size: .85rem;
+}
+.code-copy {
+  border: 1px solid var(--edge);
+  background: var(--panel);
+  color: var(--text);
+  border-radius: .35rem;
+  padding: .25rem .65rem;
+}
+.code-copy:hover { color: var(--accent); border-color: var(--accent); }
 .prose blockquote { border-inline-start: .2rem solid var(--accent); padding-inline-start: 1rem; margin-inline: 0; }
 .prose table { display: block; overflow-x: auto; border-collapse: collapse; }
 .prose td,.prose th { border: 1px solid var(--edge); padding: .4rem; }
